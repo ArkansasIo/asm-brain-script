@@ -1,0 +1,5 @@
+module Main
+
+function main()
+    print("Hello from BrainScript ASM!")
+end
