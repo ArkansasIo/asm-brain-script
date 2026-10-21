@@ -1,0 +1,31 @@
+module Demo
+
+class Player
+    field name: string
+    field hp: i64
+
+    constructor(name: string, hp: i64)
+        self.name = name
+        self.hp = hp
+    end
+
+    method damage(amount: i64)
+        self.hp -= amount
+    end
+end
+
+asm_function fast_add(a: i64, b: i64): i64
+    input a -> rdi
+    input b -> rsi
+    output rax
+    add rdi, rsi
+    mov rax, rdi
+    ret
+end
+
+function main()
+    local player = Player.new("Knight", 100)
+    player:damage(25)
+    print(player.hp)
+    print(fast_add(20, 22))
+end
